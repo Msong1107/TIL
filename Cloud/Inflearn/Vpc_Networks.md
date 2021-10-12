@@ -12,6 +12,7 @@ VPC 없이 인스턴스를 생성한다면 아래 같이 인스턴스끼리의 �
 
 ## VPC 적용 후
 vpc를 적용하면 인스턴스가 vpc 속함으로써 네트워크를 구분할 수 있고 vpc 별도 필요한 설정을 통해 인스턴스에 네트워크 설정을 적용 할수 있어요.
+
 ![image](https://user-images.githubusercontent.com/84947346/136944597-387aaaac-f5ac-4777-bc16-fb107f706e52.png)
 
 ## 📌 VPC 구성요소 및 구축 과정
