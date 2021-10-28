@@ -15,10 +15,6 @@
 
 #### 검색하여 RDS 들어간다 왼쪽 데이터베이스 -> 데이터베이스 생성 누른다
 
-
-![image](https://user-images.githubusercontent.com/84947346/139198280-b9b8cb7e-ecac-4a61-a893-95f97f449ff6.png)
-
-
 #### 표준 생성을 선택하고 엔진 유형은 MySQL로 한다
 
 
@@ -63,4 +59,46 @@
 
 ![image](https://user-images.githubusercontent.com/84947346/139208433-161f56b6-3d68-415d-a70f-31c0a81c6d62.png)
 
-## RDS 설정 끝!😆
+### RDS 설정 끝!😆
+
+## SSH 또는 Web으로 MySQL 접속하기 
+
+#### ec2에서 bastion 퍼블릭 ip를 복사해줍니다. 
+#### Putty를 열어 ec2-user@<퍼블릭 ip> 작성해줍니다
+
+![image](https://user-images.githubusercontent.com/84947346/139241932-87addc90-b554-4754-9223-4b981f50d470.png)
+
+#### Putty에서 ssh 를 누르고 Auth 를 눌러줍니다. 그리고 오른쪽에 있는 Browse를 눌러 lab-web-bastion.ppk 선택해줍니다.
+#### 그리고 Open 클릭!
+
+![image](https://user-images.githubusercontent.com/84947346/139242567-4f1e3926-2e46-4be7-b4f0-ec6c98ce7c0d.png)
+
+#### mysql -uamin -p -h <database 엔드포인트> 엔터! 그리고 password 입력!
+![image](https://user-images.githubusercontent.com/84947346/139243185-3b091d97-3390-4bb1-b82b-29c203da9999.png)
+
+#### 데이터베이스 명령어
+- show databases; (데이터베이스 보기)
+
+- use <DATABASE NAME>; (데이터베이스 사용)
+  
+- show tables; (테이블 보기)
+  
+- select * from <테이블명> (테이블 검색)
+  
+#### exit 를 적어 Mysql를 나가줍니다.
+  
+- cd /var/www/html/phpMyAdmin/ 을 작성해요.
+- sudo vi config.inc.php 을 작성해요.
+
+ ![image](https://user-images.githubusercontent.com/84947346/139245217-44dcc5d2-8fa1-4407-8697-14b12cb47874.png)
+
+#### 밑으로 내리다보면 host가 있어요 이걸 i 를 눌러서 RDS 엔드포인트를 복붙합니다.
+  
+  ![image](https://user-images.githubusercontent.com/84947346/139245466-8d5e9656-086e-4d85-a48f-b7dd0d359c02.png)
+
+#### esc를 누르고 shift+; 누르고 wq 적고 엔터를 눌러요!
+#### 그리고 bastion 보안그룹 인바운드 http 0.0.0.0/0 으로 추가해줘요
+#### 그리고 http://<퍼블릭아이피>/php.MyAdmin/ 으로 들어가줘요
+
+## 그러면 끝! 😊😊
+  
